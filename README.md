@@ -48,11 +48,11 @@ Once the time is up, feel free to use comments/notes/pseudo code on how you woul
 | GIVEN | WHEN | THEN |
 |---|---|---|
 | I am on a main pokédex page | The page loads | I can see a full list of available pokémon |
-| ^ | ^ | I can see a search form to enter the name of a Pokemon to filter the full list |
-| ^ | I enter a name AND search | I can see a filtered list of matching results |
-| ^ | I can click an entry in the list | I am redirected to an overview page for the selected pokémon |
+| I am on a main pokédex page | The page loads | I can see a search form to enter the name of a Pokemon to filter the full list |
+| I am on a main pokédex page | I enter a name AND search | I can see a filtered list of matching results |
+| I am on a main pokédex page | I can click an entry in the list | I am redirected to an overview page for the selected pokémon |
 | I am on the pokémon overview page | The page loads | I can see an image, name, species, height/weight and any abilities |
-| ^ | ^ | I can see a link back to the main page |
+| I am on a main pokédex page | The page loads | I can see a link back to the main page |
 
  
 ## Submission
