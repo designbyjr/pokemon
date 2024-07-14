@@ -85,7 +85,7 @@
             function searchPokemon(searchTerm) {
                 var url = "{{ route('getPokemon', ['name' => ':name']) }}";
                 url = url.replace(':name', searchTerm);
-                console.log(url);
+
                 $.post({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

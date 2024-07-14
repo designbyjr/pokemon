@@ -1,4 +1,5 @@
 # ans/pokédex
+Details of project are at the bottom.
 
 **This project will depend on your ability to fulfil the task 
 requirements. Any potential design skills are a bonus, but usability, 
@@ -61,3 +62,81 @@ and provide us with a link to your attempt.
 
 ## Copyright
 All trademarks are the property of their respective owners.
+
+### Installation
+
+1. Clone the repository to your local machine:
+
+   ```bash
+   git clone https://github.com/designbyjr/pokemon.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd pokemon
+   ```
+
+3. Copy the `.env.example` file to create a new `.env` file:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+4. Generate Key in `.env` file:
+
+   ```bash
+   php artisan key:generate
+   ```
+
+5. Set your API token in the `.env` file:
+
+   ```
+   API_TOKEN=your-api-token
+   ```
+
+   Replace `your-api-token` with your desired API token.
+
+6. Install npm packages environment using sail Docker:
+
+    ```bash
+    ./vendor/bin/sail npm install
+    ```
+
+7. Start the Laravel Sail environment using Docker:
+
+   ```bash
+   ./vendor/bin/sail up -d
+   ```
+
+8. Access the application at [http://localhost](http://localhost).
+
+## API Endpoints
+
+### Get a Overview of all Pokemon
+
+- **URL:** `/pokemon/index`
+- **Method:** `GET`
+- **Description:** gets all pokemon with IDs.
+- **Use Case:** Use this endpoint to display pokemon for website or application.
+
+
+### Get a NAMED Pokemon
+
+- **URL:** `/pokemon/search/{name}`
+- **Method:** `POST`
+- **Description:** Fetches a pokemon by search.
+- **Use Case:** Use this endpoint to display a named pokemon from search website or application.
+
+### Get a Overview of Pokemon
+
+- **URL:** `/pokemon/show/{id}`
+- **Method:** `POST`
+- **Description:** gets selected pokemon by ID.
+- **Use Case:** Use this endpoint to display a named pokemon from search website or application.
+
+## Improvements
+Currently the use of JQUery is not ideal. But i would hope to transition to vue.js to ensure maintainablity.
+The current JSON middleware forces JSON only responses.
+In future i would add version control for the api calls if the apis were ment to be for other purposes.
+

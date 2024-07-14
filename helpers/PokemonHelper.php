@@ -53,7 +53,7 @@ class PokemonHelper
         return $matches[0];
     }
 
-    public function TransposeDefaultResponse($response)
+    public function transposeDefaultResponse($response)
     {
         $imgBasePath = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/';
         foreach ($response as $pokemon)
@@ -62,26 +62,44 @@ class PokemonHelper
             $data[] = [
                 'id' => $id,
                 'name'=> $pokemon['name'],
-                'url' => route('pokemonOverview',['id'=>$id]),
+                'url' => route('overview',['id'=>$id]),
                 'image' => $imgBasePath.$id.'.png'
                 ];
         }
         return $data;
     }
 
-    public function TransposeSearchResponse($response)
+    public function transposeSearchResponse($response)
     {
         $imgBasePath = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/';
         $id = $response["id"];
         $data[] = [
                 'id' => $id,
                 'name'=> $response["species"]['name'],
-                'url' => route('pokemonOverview',['id'=>$id]),
+                'url' => route('overview',['id'=>$id]),
                 'image' => $imgBasePath.$id.'.png'
             ];
 
         return $data;
     }
 
+    public function transposeOverviewResponse($response)
+    {
+        $imgBasePath = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/';
+        $id = $response["id"];
+        $data[] = [
+            'id' => $id,
+            'name'=> strtoupper($response["species"]["name"]),
+            'url' => route('overview',['id'=>$id]),
+            'image' => $imgBasePath.$id.'.png',
+            "species" => strtoupper($response["species"]["name"]),
+            "height"=> $response["height"],
+            "weight"=> $response["weight"],
+            "base_experience"=> $response["base_experience"],
+            "abilities" => $response["abilities"]
 
+        ];
+
+        return $data;
+    }
 }
